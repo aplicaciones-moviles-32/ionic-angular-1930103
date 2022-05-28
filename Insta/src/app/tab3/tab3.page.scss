@@ -1,0 +1,23 @@
+.container-img {
+    position: relative;
+}
+.fotoperfil {
+    border-radius: 50%;
+    width: 60px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    border: solid 5px rgb(250, 245, 245);
+}
+
+.historia {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgb(255,17,130);
+    background: radial-gradient(circle, rgb(17, 255, 96) 0%, rgba(255,21,127,1) 13%, rgba(255,17,166,1) 24%, rgba(255,175,0,1) 100%);
+}
+
+.borde-input {
+    border: solid 1px black;
+}
