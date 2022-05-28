@@ -1,25 +1,28 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component,OnInit } from '@angular/core';
+
+import { BatabaseService } from '../batabase.service';
+import { PopoverController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit{
 
-  constructor() {}
+  constructor(private db: BatabaseService, private http: HttpClient ) {}
+  
+  publicaciones: any = [];
 
-  galletas = [
-    {
-    "usuario" : "@chokis",
-    "src": "assets/chokis.jpg",
-    "caption" : "4 pack"
-    },
-    {
-    "usuario" : "@principe",
-    "src": "assets/principe.png",
-    "caption" : "Principe chocolate blanco"
-    }
-  ]
+  ngOnInit(): void {
+     this.mostrarPublis();
+  }
 
+  mostrarPublis() {
+    this.db.getPublis().subscribe(res =>{
+      this.publicaciones = res;
+    });
+  } 
 }
+

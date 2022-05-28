@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HttpClient } from '@angular/common/http';
+import { BatabaseService } from '../batabase.service';
+
 @Component({
   selector: 'app-publicaciones',
   templateUrl: './publicaciones.component.html',
@@ -7,26 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PublicacionesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient,private db: BatabaseService) { }
 
-  ngOnInit() {}
-
-  publicaciones = [
-  {
-    id: "12313123",
-    imagen: "assets/publicacion1.jpg",
-  },
-  {
-    id: "837213871231",
-    imagen: "assets/publicacion2.png",
-  },
-  {
-    id: "2343243242",
-    imagen: "assets/publicacion3.jpg",
-  },
-  {
-    id: "464535345",
-    imagen: "assets/publicacion4.jpg",
+  ngOnInit(): void {
+    this.db.getpublisUser().subscribe(res =>{
+      this.publicaciones = res;
+      console.log(res);
+    })
   }
-  ];
+
+  publicaciones: any = [];
+
+  estado: string = 'activo';
+
+  togglepublis(activo: string):void {
+    this.estado = activo;
+  }
 }

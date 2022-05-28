@@ -1,23 +1,31 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input ,OnInit} from '@angular/core';
+import { getDatabase, onValue, ref } from 'firebase/database';
+
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page {
+export class Tab3Page implements OnInit{
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  user = {
-    "usuario": "@Jasso",
-    "nombre": "Diego",
-    "descripcion": "Tengo hambre",
-    "publicaciones": 10,
-    "seguidores": 30,
-    "seguidos": 15,
-    "foto": "assets/fotodeperfil.jpg"
+  ngOnInit(): void {
+  this.getUser();
+   /*const db = getDatabase();
+    const auxuser = ref(db, 'usuario/');
+    console.log(auxuser)
+    onValue(auxuser, (aux) => {
+      this.user = aux.val();
+      this.user = Object.values(this.user);
+    });
+    console.log(this.user);
+    */
   }
+
+  user : any = [];
 
   edicion: boolean = false;
 
@@ -26,6 +34,7 @@ export class Tab3Page {
   }
 
   @Input() cambios: string = "";
+  
   guardar(){
     this.user.descripcion = this.cambios;
     this.edicion = !this.edicion;
@@ -35,22 +44,10 @@ export class Tab3Page {
   clear(){
     this.cambios = "";
   }
-  publicaciones = [
-    {
-      id: "12313123",
-      imagen: "assets/publicacion1.jpg",
-    },
-    {
-      id: "837213871231",
-      imagen: "assets/publicacion2.png",
-    },
-    {
-      id: "2343243242",
-      imagen: "assets/publicacion3.jpg",
-    },
-    {
-      id: "464535345",
-      imagen: "assets/publicacion4.jpg",
-    }
-    ];
+    getUser(): void {
+    this.http.get('https://claseapps-97737-default-rtdb.firebaseio.com/usuario.json').subscribe(res => {
+      console.log(res);
+      this.user = res;
+    });
+  }
 }

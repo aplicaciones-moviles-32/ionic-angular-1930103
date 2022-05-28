@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "claseapps-97737": {
+      "hosting": {
+        "app": [
+          "claseapps-97737"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "claseapps-97737"
+  }
+}

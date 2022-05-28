@@ -1,10 +1,19 @@
 <ion-grid> 
-  <ion-button>Vista grid</ion-button>
-  <ion-button>Vista - Etiquetado</ion-button>
+  <ion-row>
+    <ion-col>
+        <ion-button fill="translucent" class="boton-grid" (click)="togglepublis('activo')"><ion-icon name="grid-outline"></ion-icon></ion-button>
+
+    </ion-col>
+    <ion-col>
+        <ion-button fill="translucent" class="boton-grid" (click)="togglepublis('descativado')"><ion-icon name="pricetag-outline"></ion-icon></ion-button>
+    </ion-col>
+</ion-row>
   
-  <ion-row> 
-      <ion-col size="4"  *ngFor="let publi of publicaciones">
-          <img [src]="publi.imagen" alt="">
+  <ion-row *ngIf=" estado =='activo'"> 
+     <ion-col size="4"  *ngFor = "let publi of publicaciones"> 
+       <ion-thumbnail class = "publis">
+          <ion-img [src]="publi.imagen" alt=""></ion-img>
+      </ion-thumbnail>
       </ion-col>
   </ion-row>
 </ion-grid>
