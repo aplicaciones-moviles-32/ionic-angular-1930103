@@ -11,17 +11,18 @@
   
   <ion-row *ngIf=" estado =='activo'"> 
      <ion-col size="4"  *ngFor = "let publi of publicaciones"> 
-       <ion-thumbnail class = "publis">
+       <div class="trim">
           <ion-img [src]="publi.imagen" alt=""></ion-img>
-      </ion-thumbnail>
+        </div>
+      
       </ion-col>
   </ion-row>
 
   <ion-row *ngIf=" estado =='desactivado'"> 
     <ion-col size="10"  *ngFor = "let publi of publicaciones"> 
-      <ion-thumbnail class = "publisgrandes">
-         <ion-img [src]="publi.imagen" alt=""></ion-img>
-     </ion-thumbnail>
+      <div class="trimmayor">
+        <ion-img [src]="publi.imagen" alt=""></ion-img>
+      </div>
      </ion-col>
  </ion-row>
 </ion-grid>

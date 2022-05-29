@@ -15,3 +15,14 @@ ion-img::part(image) {
     min-height: 500px;
     min-width: 500px;
 }
+
+.trim {
+    max-height:400px !important;
+    max-width: 400px !important;
+    overflow: hidden !important;
+}
+.trimmayor {
+    max-height:900px !important;
+    max-width: 900px !important;
+    overflow: hidden !important;
+}

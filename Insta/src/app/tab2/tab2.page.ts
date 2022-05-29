@@ -5,6 +5,7 @@ import { defineCustomElements } from '@ionic/pwa-elements/loader';
 import { NgForm } from '@angular/forms';
 import { Database,set,ref,update,getDatabase,onValue,remove } from '@angular/fire/database';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 import { BatabaseService } from '../batabase.service';
 
@@ -15,7 +16,7 @@ import { BatabaseService } from '../batabase.service';
 })
 export class Tab2Page implements OnInit{
 
-  constructor(public camara: CamaraService, private http: HttpClient,private db: BatabaseService) {}
+  constructor(public camara: CamaraService, private http: HttpClient,private db: BatabaseService,private router: Router) {}
 
   ubi: string = "";
   checar_foto: boolean = false;
@@ -92,5 +93,8 @@ export class Tab2Page implements OnInit{
       console.log(res);
       this.user = res;
     });
+  }
+  close_button(){
+    this.router.navigate(['iniciarsesion']);
   }
 }

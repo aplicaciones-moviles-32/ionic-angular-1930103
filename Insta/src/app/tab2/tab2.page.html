@@ -1,43 +1,42 @@
-
-  <!--<ion-header>
-    <ion-toolbar>
-      <ion-title>
-        <div class="container">
-          <ion-label>{{user.usuario}}</ion-label>
-          <div class="notificaciones">
-            <ion-button fill="translucent" id="trigger-notificaciones">
-              <ion-icon name="heart-outline"></ion-icon>
-            </ion-button>
-            <ion-popover trigger="trigger-notificaciones" show-backdrop="false">
-              <ng-template>
-                <ion-list>
-                  <ion-item>
-                    Notificacion
-                  </ion-item>
-                </ion-list>
-              </ng-template>
-            </ion-popover>
-          </div>
-         <div class="perfil">
-          <ion-avatar>
-            <ion-img [src] ="user.foto" id="user-header-pic"></ion-img>
-            <ion-popover trigger="user-header-pic">
-              <ng-template>
-                <ion-list>
-                    <ion-item>
-                      <ion-icon name="exit"></ion-icon>
-                      <ion-label color="danger" (click)="close_button()">Cerrar Sesión</ion-label>
-                  </ion-item>
-                </ion-list>
-              </ng-template>
-            </ion-popover>
-          </ion-avatar>
-         </div>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="container">
+        <ion-label>{{user.usuario}}</ion-label>
+        <div class="notificaciones">
+          <ion-button fill="translucent" id="trigger-notificaciones">
+            <ion-icon name="heart-outline"></ion-icon>
+          </ion-button>
+          <ion-popover trigger="trigger-notificaciones" show-backdrop="false">
+            <ng-template>
+              <ion-list>
+                <ion-item>
+                  Notificacion
+                </ion-item>
+              </ion-list>
+            </ng-template>
+          </ion-popover>
         </div>
-      </ion-title>
-    </ion-toolbar>
-  </ion-header>-->
-  
+       <div class="perfil">
+        <ion-avatar>
+          <ion-img [src] ="user.foto" id="user-header-pic"></ion-img>
+          <ion-popover trigger="user-header-pic">
+            <ng-template>
+              <ion-list>
+                <ion-item>
+                  <ion-label>
+                    Cerrar Sesion
+                  </ion-label>
+                </ion-item>
+              </ion-list>
+            </ng-template>
+          </ion-popover>
+        </ion-avatar>
+       </div>
+      </div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
 
   <ion-app>
     <ion-content>
