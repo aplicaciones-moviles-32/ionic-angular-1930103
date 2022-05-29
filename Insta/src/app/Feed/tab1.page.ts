@@ -14,9 +14,13 @@ export class Tab1Page implements OnInit{
   constructor(private db: BatabaseService, private http: HttpClient ) {}
   
   publicaciones: any = [];
+  user: any = [];
 
   ngOnInit(): void {
      this.mostrarPublis();
+     this.db.getUser().subscribe(res => {
+      this.user = res;
+    })
   }
 
   mostrarPublis() {
