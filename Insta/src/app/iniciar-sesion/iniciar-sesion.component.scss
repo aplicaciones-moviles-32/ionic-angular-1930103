@@ -1,0 +1,69 @@
+.welcometext{
+    text-align: center !important;
+    font-size: clamp(25px, 5vw, 50px) !important;
+    vertical-align: middle;
+}
+
+.welcomebox{
+    height: 5vh !important;
+    padding-bottom: calc(5vw + 30px) !important;
+    padding-top: 20px !important;
+}
+
+.secondtext{
+    height: 4vh !important;
+    text-align: center !important;
+    font-size: clamp(15px, 4vw, 30px) !important;
+    vertical-align: middle !important;
+}
+
+.secondbox{
+    padding-top: calc(1.5vw + 10px) !important;
+    height: 5vh !important;
+}
+
+.thirdtext{
+    text-align: center !important;
+    font-size: clamp(10px, 5vw, 25px) !important;
+    vertical-align: middle;
+}
+
+.homegif{
+    min-width: 100px;
+    display: block;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.homebox{
+    padding-top: 80px;
+}
+
+.form{
+
+    min-width: 100px !important;   
+    display: block !important;
+    padding-left: 4vw !important;
+    padding-right: 4vw !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+ion-button{
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+
+ion-input{
+    border-radius: 10px !important;
+    padding-right: 30px;
+    font-size: 0.9em;
+    border: 1px solid #f1f1f1 !important;
+    max-width: 50vw;
+    max-height: 10vh;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}

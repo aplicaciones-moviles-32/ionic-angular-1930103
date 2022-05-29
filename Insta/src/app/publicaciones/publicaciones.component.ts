@@ -16,9 +16,11 @@ export class PublicacionesComponent implements OnInit {
     this.db.getpublisUser().subscribe(res =>{
       this.publicaciones = res;
       console.log(res);
+      this.numpubli=this.publicaciones.length;
+      console.log(this.numpubli);
     })
   }
-
+  numpubli: any = 0;
   publicaciones: any = [];
 
   estado: string = 'activo';

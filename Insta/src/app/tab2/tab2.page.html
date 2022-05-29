@@ -1,16 +1,80 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!--<ion-header>
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title>
+        <div class="container">
+          <ion-label>{{user.usuario}}</ion-label>
+          <div class="notificaciones">
+            <ion-button fill="translucent" id="trigger-notificaciones">
+              <ion-icon name="heart-outline"></ion-icon>
+            </ion-button>
+            <ion-popover trigger="trigger-notificaciones" show-backdrop="false">
+              <ng-template>
+                <ion-list>
+                  <ion-item>
+                    Notificacion
+                  </ion-item>
+                </ion-list>
+              </ng-template>
+            </ion-popover>
+          </div>
+         <div class="perfil">
+          <ion-avatar>
+            <ion-img [src] ="user.foto" id="user-header-pic"></ion-img>
+            <ion-popover trigger="user-header-pic">
+              <ng-template>
+                <ion-list>
+                    <ion-item>
+                      <ion-icon name="exit"></ion-icon>
+                      <ion-label color="danger" (click)="close_button()">Cerrar Sesión</ion-label>
+                  </ion-item>
+                </ion-list>
+              </ng-template>
+            </ion-popover>
+          </ion-avatar>
+         </div>
+        </div>
+      </ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header>-->
+  
 
-</ion-content>
+  <ion-app>
+    <ion-content>
+       <ion-item>
+          </ion-item>
+          <ion-card class="card">
+            <ion-card-header class="firsttext">Nueva Publicacion</ion-card-header>
+            <ion-card-content>
+              <form #Agregarpublicacion="ngForm" (ngSubmit)="onSubmit(Agregarpublicacion)" ngNativeValidate>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col class="secondtext">Descripción de tu publicación</ion-col>
+                  </ion-row>
+                  <ion-row class="inputbox">
+                  <ion-input class="input" placeholder="Ingrese la descripcion aquí" [(ngModel)]="newdesc" name="desc" required></ion-input>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col class="thirdtext" size="4">Adjuntar foto::</ion-col>
+                    <ion-col class="ion-align-self-center"><ion-button (click)="fotografiar()" class="ion-float-right">Tomar Foto</ion-button></ion-col>
+                  </ion-row>
+                  <div *ngIf="publicado" class="newpub">
+                    <ion-row *ngFor="let i of camara.fotografia; index as position" >
+                      <ion-img [src]="i.data" class="temp_pic"></ion-img>
+                    </ion-row>
+                    <div class="locationlabel">
+                      <ion-label> Agregando foto...  <ion-icon name="location-outline"></ion-icon>{{ubi}}</ion-label>
+                    </div>
+                  </div>
+                  <ion-row *ngIf="checar_foto" class="boxbutton">
+                  </ion-row>
+                </ion-grid>
+                <ion-row class="subbox">
+                  <ion-button class="button" type="submit" *ngIf="checar_foto">Subir Publicación</ion-button>
+                </ion-row>
+              </form>      
+            </ion-card-content>
+          </ion-card>
+        
+    </ion-content>
+</ion-app>

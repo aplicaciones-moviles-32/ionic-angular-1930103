@@ -1,6 +1,6 @@
 import { Component, Input ,OnInit} from '@angular/core';
 import { getDatabase, onValue, ref } from 'firebase/database';
-
+import { BatabaseService } from '../batabase.service';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -10,23 +10,23 @@ import { HttpClient } from '@angular/common/http';
 })
 export class Tab3Page implements OnInit{
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private db: BatabaseService) {}
 
   ngOnInit(): void {
-  this.getUser();
-   /*const db = getDatabase();
-    const auxuser = ref(db, 'usuario/');
-    console.log(auxuser)
-    onValue(auxuser, (aux) => {
-      this.user = aux.val();
-      this.user = Object.values(this.user);
-    });
-    console.log(this.user);
-    */
+  this.db.getUser().subscribe(res => {
+    this.user = res;
+  })
+  this.db.getpublisUser().subscribe(res =>{
+    this.publicaciones = res;
+    console.log(res);
+    this.numpubli=this.publicaciones.length;
+    console.log(this.numpubli);
+  })
   }
 
   user : any = [];
-
+  numpubli: any = 0;
+  publicaciones: any = [];
   edicion: boolean = false;
 
   comenzarEdicion(){
@@ -43,11 +43,5 @@ export class Tab3Page implements OnInit{
 
   clear(){
     this.cambios = "";
-  }
-    getUser(): void {
-    this.http.get('https://claseapps-97737-default-rtdb.firebaseio.com/usuario.json').subscribe(res => {
-      console.log(res);
-      this.user = res;
-    });
   }
 }

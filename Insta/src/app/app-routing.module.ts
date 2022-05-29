@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
-
+import { IniciarSesionComponent } from './iniciar-sesion/iniciar-sesion.component';
+import { TabsPageModule } from './tabs/tabs.module';
 const routes: Routes = [
   {
     path: '',
@@ -9,6 +10,12 @@ const routes: Routes = [
   },
   {
     path: 'publicaciones', component: PublicacionesComponent
+  },
+  {
+    path: 'iniciarsesion', component: IniciarSesionComponent
+  },
+  {
+    path: 'tabs', loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   }
 ];
 @NgModule({

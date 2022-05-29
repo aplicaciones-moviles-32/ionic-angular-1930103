@@ -13,3 +13,23 @@
     border: solid 1px rgb(242, 246, 247);
     margin-bottom: 10px;
 }
+ion-avatar{
+    width: 20px;
+    height: 20px;
+}
+
+.container ion-label {
+    text-align: left;
+    flex: 1 0 80%;
+}
+#trigger-notificaciones {
+    height: 2em;
+}
+.container{
+    display: flex;
+   align-items: center;
+}
+
+.perfil, .notificaciones {
+    flex: 1 0 auto;
+}

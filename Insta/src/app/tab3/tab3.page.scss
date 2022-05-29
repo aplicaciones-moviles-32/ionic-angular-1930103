@@ -1,6 +1,7 @@
-.container-img {
+.-img {
     position: relative;
 }
+
 .fotoperfil {
     border-radius: 50%;
     width: 60px;
@@ -20,4 +21,25 @@
 
 .borde-input {
     border: solid 1px black;
+}
+
+ion-avatar{
+    width: 20px;
+    height: 20px;
+}
+
+.con ion-label {
+    text-align: left;
+    flex: 1 0 80%;
+}
+#trigger-notificaciones {
+    height: 2em;
+}
+.con{
+    display: flex;
+   align-items: center;
+}
+
+.perfil, .notificaciones {
+    flex: 1 0 auto;
 }
